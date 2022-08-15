@@ -1,0 +1,46 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      System.out.println("Hello, World!");
+      
+      int n = 5; //число сотрудников = длина массива
+      int t = 7; // минут до ухода сотрудника
+      int [] array = {1, 3, 6, 8, 12}; //список этажей сотрудников
+      int i = 1; // номер уходящего сотрудника 
+      //array [i-1]; //этаж уходящего сотрудника
+      int tk = 0;
+      
+    if (i == n-1) //уходящий на верхнем этаже, время не важно
+    
+      tk = (array [n-1] - array [0]);
+      
+    /*if ((array [n-1] - array [0]) < t)  // время так велико (больше длины забега от верхнего этажа до нижнего), что тоже не важно
+    
+      tk = (array [n-1] - array [0]); //частный случай условия ниже
+    */  
+    if ((array [n-1] - array [i]) < t ) //время больше забега сверху до этажа сотрудника, можно бежать вниз и все успеть
+      
+      tk = (array [n-1] - array [0]);
+    
+    if (t > (array [i] - array [0])) // время больше забега с начального этажа до этажа сотрудника, можно бежать снизу вверх и все успеть
+    
+     tk = (array [n-1] - array [0]);
+    
+    else 
+    {
+      if (array [i] > (array [n-1] - array [0])/2)
+      
+      tk = 2 * array [n-1] - array [0] - array [i];
+      
+      else
+      
+      tk = array [n-1] + array [i] - 2* array [0];
+    }
+      
+      
+      System.out.println(tk);
+      
+      
+  }
+}
